@@ -52,7 +52,6 @@
         crypto_sign(message_sig, &message_signed_len, message, message_len, sk);
 
         [mutableRequest setValue:message_sig forHTTPHeaderField:@"X-Content-Signature"];
-        [mutableRequest setHTTPBody:mutableRequest.HTTPBody];
     } else {
         if (error) {
             *error = serializationError;
