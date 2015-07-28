@@ -46,8 +46,8 @@
 
     if (!serializationError && mutableRequest.HTTPBody) {
         // Extract the raw bytes from NSData
-        [mutableRequest.HTTPBody getBytes:&message length:message_len];
-        [self.secret_key getBytes:&sk length:[self.secret_key length]];
+        [mutableRequest.HTTPBody getBytes:message length:message_len];
+        [self.secret_key getBytes:sk length:[self.secret_key length]];
 
         crypto_sign(message_sig, &message_signed_len, message, message_len, sk);
 
